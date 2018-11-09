@@ -1,19 +1,20 @@
 import { ADD_GUESS, UPDATE_FEEDBACK ,UPDATE_AURAL_STATUS, RESET_GAME, addGuess } from '../actions';
 
-function initialState() {
-  return {
+// function initialState() {
+//   return {
+  const initialState = {
     guesses: [],
     feedback: '',
     auralStatus: '',
     correctAnswer: generateCorrectAnswer()
   }
-}
+// }
 
 function generateCorrectAnswer() {
   return Math.floor(Math.random() * 100) + 1;
 }
 
-export default function reducer(state=initialState(), action) {
+export default function reducer(state=initialState, action) {
   if (action.type === ADD_GUESS) {
     return {
       ...state,
@@ -30,7 +31,13 @@ export default function reducer(state=initialState(), action) {
       auralStatus: action.auralStatus
     }
   } else if (action.type === RESET_GAME) {
-    return initialState()
+    return {
+      ...initialState,
+      correctAnswer: generateCorrectAnswer()
+    };
   }
+  // else if (action.type === RESET_GAME) {
+  //   return initialState()
+  // }
   return state;
 }
