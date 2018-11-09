@@ -1,0 +1,5 @@
+Actions
+  Add guess
+  Update feedback
+  Update auralStatus
+  Reset game
