@@ -1,14 +1,11 @@
 import { ADD_GUESS, UPDATE_FEEDBACK ,UPDATE_AURAL_STATUS, RESET_GAME, addGuess } from '../actions';
 
-// function initialState() {
-//   return {
-  const initialState = {
-    guesses: [],
-    feedback: '',
-    auralStatus: '',
-    correctAnswer: generateCorrectAnswer()
-  }
-// }
+const initialState = {
+  guesses: [],
+  feedback: '',
+  auralStatus: '',
+  correctAnswer: generateCorrectAnswer()
+}
 
 function generateCorrectAnswer() {
   return Math.floor(Math.random() * 100) + 1;
@@ -36,8 +33,5 @@ export default function reducer(state=initialState, action) {
       correctAnswer: generateCorrectAnswer()
     };
   }
-  // else if (action.type === RESET_GAME) {
-  //   return initialState()
-  // }
   return state;
 }

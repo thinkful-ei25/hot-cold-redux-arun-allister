@@ -1,6 +1,7 @@
+import { connect } from 'react-redux';
 import React from 'react';
 
-export default function AuralStatus(props) {
+function AuralStatus(props) {
   return (
     <p
       id="status-readout"
@@ -12,3 +13,11 @@ export default function AuralStatus(props) {
     </p>
   );
 }
+
+function mapStateToProps(state) {
+  return {
+    auralStatus: state.auralStatus,
+  };
+}
+
+export default connect(mapStateToProps)(AuralStatus);
