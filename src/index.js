@@ -1,3 +1,4 @@
+import { Provider } from 'react-redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
@@ -9,12 +10,15 @@ import './index.css';
 
 import Game from './components/game';
 
+const store = createStore(reducer);
+
 ReactDOM.render(
-  <Game />,
+  <Provider store={store}>
+    <Game />
+  </Provider>,
   document.getElementById('root')
 );
 
-const store = createStore(reducer);
 console.log(store.getState());
 store.dispatch(addGuess(5));
 console.log(store.getState());
